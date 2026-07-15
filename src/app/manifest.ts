@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "ABU Cooperative",
     short_name: "ABU Coop",
     description: "Cooperative savings and loan management for ABU students.",
-    start_url: "/dashboard",
+    start_url: "/",
     display: "standalone",
     background_color: "#f8faf8",
     theme_color: "#0d6436",
