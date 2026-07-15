@@ -5,6 +5,7 @@ import {
   ShieldCheck,
   Construction,
 } from "lucide-react";
+import { InstallPrompt } from "@/components/dashboard/install-prompt";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -66,6 +67,11 @@ export default function Home() {
           </nav>
         </div>
       </header>
+
+      {/* Install prompt — first thing visible */}
+      <div className="mx-auto w-full max-w-6xl px-6 pt-6">
+        <InstallPrompt />
+      </div>
 
       {/* Work-in-progress banner */}
       <div className="bg-warning/10 border-b border-warning/20">
@@ -140,7 +146,7 @@ export default function Home() {
             </p>
           </div>
           <div className="grid gap-8 sm:grid-cols-3">
-            {steps.map((step, i) => (
+            {steps.map((step) => (
               <Card
                 key={step.title}
                 className="border border-border rounded-lg shadow-sm hover:shadow-md transition-shadow bg-card"
