@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Landmark,
   PiggyBank,
@@ -52,17 +53,15 @@ export default function Home() {
             <Button
               variant="ghost"
               size="sm"
-              disabled
               className="text-muted-foreground hover:text-foreground"
             >
-              Log in
+              <Link href="/login">Log in</Link>
             </Button>
             <Button
               size="sm"
-              disabled
               className="bg-primary text-primary-foreground hover:opacity-90 transition-opacity"
             >
-              Get started
+              <Link href="/register">Get started</Link>
             </Button>
           </nav>
         </div>
@@ -113,18 +112,16 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Button
               size="lg"
-              disabled
               className="bg-primary-foreground text-primary hover:opacity-90 transition-opacity font-semibold"
             >
-              Get started
+              <Link href="/register">Get started</Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              disabled
               className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 transition-colors font-semibold"
             >
-              Log in
+              <Link href="/login">Log in</Link>
             </Button>
           </div>
           <p className="text-primary-foreground/70 text-sm mt-6 font-sans">
