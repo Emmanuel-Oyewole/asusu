@@ -5,9 +5,209 @@
 
 generator client {
   provider = "prisma-client"
-  output   = "../app/generated/prisma"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
   provider = "postgresql"
 }
+
+enum Role {
+  STUDENT
+  ADMIN
+}
+
+enum VerificationStatus {
+  UNVERIFIED
+  PENDING_REVIEW
+  VERIFIED
+  REJECTED
+}
+
+
+enum LoanStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  ACTIVE
+  COMPLETED
+}
+
+enum InstallmentStatus {
+  PENDING
+  PAID
+  OVERDUE
+}
+
+enum ContributionStatus {
+  PENDING
+  PAID
+}
+
+enum TransactionType {
+  CONTRIBUTION
+  DISBURSEMENT
+  REPAYMENT
+}
+
+enum NotificationType {
+  INSTALLMENT_DUE
+  INSTALLMENT_OVERDUE
+  CONTRIBUTION_DUE
+  VERIFICATION_UPDATE
+  LOAN_UPDATE
+}
+
+
+model User {
+  id                  String              @id @db.Uuid   // = Supabase auth.users.id, set explicitly, no @default
+  name                String
+  matricNo            String              @unique
+  email               String              @unique
+  phone               String
+  department          String
+  role                Role                @default(STUDENT)
+  verificationStatus  VerificationStatus  @default(UNVERIFIED)
+  admissionLetterPath String?
+  rejectionReason     String?
+  createdAt           DateTime            @default(now())
+  updatedAt           DateTime            @updatedAt
+
+  loans               Loan[]
+  contributions       Contribution[]
+  transactions        Transaction[]
+  pushSubscriptions   PushSubscription[]
+  notifications       Notification[]
+  adminActions        AdminActionLog[]    @relation("AdminActor")
+
+  @@index([verificationStatus])
+}
+
+model Loan {
+  id               String       @id @default(cuid())
+  userId           String       @db.Uuid
+  user             User         @relation(fields: [userId], references: [id])
+
+  principalAmount  Decimal      @db.Decimal(12, 2)
+  termMonths       Int
+  purpose          String?
+
+  status           LoanStatus   @default(PENDING)
+  approvedBy       String?      @db.Uuid
+  approvedAt       DateTime?
+  rejectionReason  String?
+
+  disbursedAt      DateTime?
+  nombaTransferRef String?      @unique
+
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+
+  installments     LoanInstallment[]
+  transactions     Transaction[]
+
+  @@index([userId, status])
+}
+
+model LoanInstallment {
+  id                  String             @id @default(cuid())
+  loanId              String
+  loan                Loan               @relation(fields: [loanId], references: [id])
+
+  installmentNo       Int
+  amountDue           Decimal            @db.Decimal(12, 2)
+  dueDate             DateTime
+  status              InstallmentStatus  @default(PENDING)
+
+  nombaOrderReference String?            @unique
+  paidAt              DateTime?
+
+  transactions        Transaction[]
+
+  @@unique([loanId, installmentNo])
+  @@index([status, dueDate])   // exact query the daily reminder/overdue cron runs against
+}
+
+model Contribution {
+  id                  String              @id @default(cuid())
+  userId              String              @db.Uuid
+  user                User                @relation(fields: [userId], references: [id])
+
+  amount              Decimal             @db.Decimal(12, 2)
+  period              String              // e.g. "2026-07"
+  status              ContributionStatus  @default(PENDING)
+
+  nombaOrderReference String?             @unique
+  paidAt              DateTime?
+  createdAt           DateTime            @default(now())
+
+  transactions        Transaction[]
+
+  @@unique([userId, period])   // one contribution record per member per month
+}
+
+// Unified ledger — single source of truth for balances and the PDF statement
+model Transaction {
+  id                 String            @id @default(cuid())
+  type               TransactionType
+
+  userId             String            @db.Uuid
+  user               User              @relation(fields: [userId], references: [id])
+
+  loanId             String?
+  loan               Loan?             @relation(fields: [loanId], references: [id])
+
+  loanInstallmentId  String?
+  loanInstallment    LoanInstallment?  @relation(fields: [loanInstallmentId], references: [id])
+
+  contributionId     String?
+  contribution       Contribution?     @relation(fields: [contributionId], references: [id])
+
+  amount             Decimal           @db.Decimal(12, 2)
+  nombaReference     String?
+  createdAt          DateTime          @default(now())
+
+  @@index([userId, createdAt])
+  @@index([type, createdAt])
+}
+
+model PushSubscription {
+  id        String   @id @default(cuid())
+  userId    String   @db.Uuid
+  user      User     @relation(fields: [userId], references: [id])
+
+  endpoint  String   @unique
+  p256dh    String
+  auth      String
+  createdAt DateTime @default(now())
+}
+
+model Notification {
+  id        String            @id @default(cuid())
+  userId    String            @db.Uuid
+  user      User              @relation(fields: [userId], references: [id])
+
+  type      NotificationType
+  title     String
+  body      String
+  read      Boolean           @default(false)
+  createdAt DateTime          @default(now())
+
+  @@index([userId, read])
+}
+
+// Audit trail — who approved/rejected what, and when
+model AdminActionLog {
+  id         String   @id @default(cuid())
+  adminId    String   @db.Uuid
+  admin      User     @relation("AdminActor", fields: [adminId], references: [id])
+
+  action     String   // e.g. "APPROVE_LOAN", "REJECT_VERIFICATION"
+  targetType String   // e.g. "Loan", "User"
+  targetId   String
+  metadata   Json?
+  createdAt  DateTime @default(now())
+
+  @@index([targetType, targetId])
+}
+
