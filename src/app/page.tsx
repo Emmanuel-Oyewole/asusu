@@ -125,7 +125,8 @@ export default function Home() {
             </Button>
           </div>
           <p className="text-primary-foreground/70 text-sm mt-6 font-sans">
-            Registration opens soon — check back shortly.
+            Join in minutes — verification typically completes within 1–2
+            business days.
           </p>
         </div>
       </section>
