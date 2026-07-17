@@ -2,6 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { createServerClient } from "@supabase/ssr";
+import { createClient } from "@/lib/supabase/server";
 import { cookies } from "next/headers";
 import { prisma } from "@/lib/prisma";
 import { Role, VerificationStatus, Prisma } from "../generated/prisma/client";
