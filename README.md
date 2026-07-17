@@ -37,3 +37,28 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 supabase account
 oyewoleemmanuel300@gmail.com
+
+----
+## sql script to create storage bucket for admission letters
+```sql
+-- Create the private bucket
+insert into storage.buckets (id, name, public)
+values ('admission-letters', 'admission-letters', false);
+
+-- Students can upload only into their own folder: admission-letters/{their-uid}/...
+create policy "Students upload their own admission letter"
+on storage.objects for insert
+to authenticated
+with check (
+  bucket_id = 'admission-letters'
+  and (storage.foldername(name))[1] = auth.uid()::text
+);
+
+-- Students can view their own uploaded file (e.g. to confirm what was submitted)
+create policy "Students view their own admission letter"
+on storage.objects for select
+to authenticated
+using (
+  bucket_id = 'admission-letters'
+  and (storage.foldername(name))[1] = auth.uid()::text
+);

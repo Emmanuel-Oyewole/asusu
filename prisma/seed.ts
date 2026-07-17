@@ -4,14 +4,11 @@
  * Never exposed via any app route. Requires the Supabase service-role key,
  * which must never be shipped to the client.
  */
-import { createClient } from "@supabase/supabase-js";
+import { createAdminClient } from "../src/lib/supabase/admin";
 import { Role, VerificationStatus } from "../src/generated/prisma/client";
 import { prisma } from "../src/lib/prisma";
 
-const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!, // server-only secret, never NEXT_PUBLIC_
-);
+const supabaseAdmin = createAdminClient();
 
 async function main() {
   const email = process.env.SEED_ADMIN_EMAIL;
