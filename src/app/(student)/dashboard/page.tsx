@@ -91,7 +91,7 @@ export default async function DashboardPage() {
             </span>
           </p>
           {!contributionPaid && (
-            <Button asChild className="w-full">
+            <Button className="w-full">
               <Link href="/contributions">Pay this month's contribution</Link>
             </Button>
           )}
@@ -123,7 +123,7 @@ export default async function DashboardPage() {
                 })}
               </p>
             )}
-            <Button asChild variant="outline" className="w-full">
+            <Button variant="outline" className="w-full">
               <Link href={`/loans/${activeLoan.id}`}>View loan details</Link>
             </Button>
           </CardContent>
@@ -140,7 +140,7 @@ export default async function DashboardPage() {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <Button asChild className="w-full">
+            <Button className="w-full">
               <Link href="/loans/apply">Apply for a loan</Link>
             </Button>
           </CardContent>
@@ -149,13 +149,13 @@ export default async function DashboardPage() {
 
       {/* Quick actions */}
       <div className="grid grid-cols-2 gap-3">
-        <Button asChild variant="outline">
+        <Button variant="outline">
           <Link href="/loans">
             <HandCoins className="size-4" />
             My Loans
           </Link>
         </Button>
-        <Button asChild variant="outline">
+        <Button variant="outline">
           <Link href="/statements">
             <FileDown className="size-4" />
             Statements
