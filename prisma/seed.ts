@@ -9,7 +9,7 @@ import { Role, VerificationStatus } from "../src/generated/prisma/client";
 import { prisma } from "../src/lib/prisma";
 
 const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_PROJECT_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!, // server-only secret, never NEXT_PUBLIC_
 );
 

@@ -78,7 +78,7 @@ export interface PrismaClientConstructor {
    * @example
    * ```
    * const prisma = new PrismaClient({
-   *   adapter: new PrismaPg({ connectionString: process.env.NEXT_PUBLIC_SUPABASE_URL })
+   *   adapter: new PrismaPg({ connectionString: process.env.NEXT_PUBLIC_SUPABASE_DB_URL })
    * })
    * // Fetch zero or more Users
    * const users = await prisma.user.findMany()
@@ -109,7 +109,7 @@ export interface PrismaClientConstructor {
  * @example
  * ```
  * const prisma = new PrismaClient({
- *   adapter: new PrismaPg({ connectionString: process.env.NEXT_PUBLIC_SUPABASE_URL })
+ *   adapter: new PrismaPg({ connectionString: process.env.NEXT_PUBLIC_SUPABASE_DB_URL })
  * })
  * // Fetch zero or more Users
  * const users = await prisma.user.findMany()
