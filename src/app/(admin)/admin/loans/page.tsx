@@ -30,7 +30,7 @@ export default async function AdminLoansQueuePage({
 
   const loans = await prisma.loan.findMany({
     where: activeFilter.statuses
-      ? { status: { in: activeFilter.statuses } }
+      ? { status: { in: [...activeFilter.statuses] } }
       : {},
     orderBy: { createdAt: "asc" },
     include: { user: { select: { name: true, matricNo: true } } },
