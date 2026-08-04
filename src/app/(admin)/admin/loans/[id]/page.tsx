@@ -14,6 +14,7 @@ import { StatusPill } from "@/components/dashboard/status-pill";
 import { LOAN_STATUS_META } from "@/lib/loan-status";
 import { LoanReviewActions } from "@/components/admin/loan-review-actions";
 import { formatNaira } from "@/utils/finance";
+import { DisburseLoanButton } from "@/components/admin/disburse-loan-button";
 
 export default async function AdminLoanDetailPage({
   params,
@@ -110,6 +111,24 @@ export default async function AdminLoanDetailPage({
             <LoanReviewActions
               loanId={loan.id}
               requestedTermMonths={loan.termMonths}
+            />
+          </CardContent>
+        </Card>
+      )}
+      {loan.status === LoanStatus.APPROVED && (
+        <Card>
+          <CardHeader>
+            <CardTitle>Ready for disbursement</CardTitle>
+            <CardDescription>
+              {loan.user.bankAccountNumber
+                ? `Funds will be sent to ${loan.user.bankName} — ${loan.user.bankAccountNumber}`
+                : "⚠ This member has not added bank details yet — disbursement is blocked."}
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <DisburseLoanButton
+              loanId={loan.id}
+              disabled={!loan.user.bankAccountNumber}
             />
           </CardContent>
         </Card>

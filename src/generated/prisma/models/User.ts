@@ -34,6 +34,10 @@ export type UserMinAggregateOutputType = {
   role: $Enums.Role | null
   verificationStatus: $Enums.VerificationStatus | null
   admissionLetterPath: string | null
+  bankName: string | null
+  bankCode: string | null
+  bankAccountNumber: string | null
+  bankAccountName: string | null
   rejectionReason: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -49,6 +53,10 @@ export type UserMaxAggregateOutputType = {
   role: $Enums.Role | null
   verificationStatus: $Enums.VerificationStatus | null
   admissionLetterPath: string | null
+  bankName: string | null
+  bankCode: string | null
+  bankAccountNumber: string | null
+  bankAccountName: string | null
   rejectionReason: string | null
   createdAt: Date | null
   updatedAt: Date | null
@@ -64,6 +72,10 @@ export type UserCountAggregateOutputType = {
   role: number
   verificationStatus: number
   admissionLetterPath: number
+  bankName: number
+  bankCode: number
+  bankAccountNumber: number
+  bankAccountName: number
   rejectionReason: number
   createdAt: number
   updatedAt: number
@@ -81,6 +93,10 @@ export type UserMinAggregateInputType = {
   role?: true
   verificationStatus?: true
   admissionLetterPath?: true
+  bankName?: true
+  bankCode?: true
+  bankAccountNumber?: true
+  bankAccountName?: true
   rejectionReason?: true
   createdAt?: true
   updatedAt?: true
@@ -96,6 +112,10 @@ export type UserMaxAggregateInputType = {
   role?: true
   verificationStatus?: true
   admissionLetterPath?: true
+  bankName?: true
+  bankCode?: true
+  bankAccountNumber?: true
+  bankAccountName?: true
   rejectionReason?: true
   createdAt?: true
   updatedAt?: true
@@ -111,6 +131,10 @@ export type UserCountAggregateInputType = {
   role?: true
   verificationStatus?: true
   admissionLetterPath?: true
+  bankName?: true
+  bankCode?: true
+  bankAccountNumber?: true
+  bankAccountName?: true
   rejectionReason?: true
   createdAt?: true
   updatedAt?: true
@@ -199,6 +223,10 @@ export type UserGroupByOutputType = {
   role: $Enums.Role
   verificationStatus: $Enums.VerificationStatus
   admissionLetterPath: string | null
+  bankName: string | null
+  bankCode: string | null
+  bankAccountNumber: string | null
+  bankAccountName: string | null
   rejectionReason: string | null
   createdAt: Date
   updatedAt: Date
@@ -235,6 +263,10 @@ export type UserWhereInput = {
   role?: Prisma.EnumRoleFilter<"User"> | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusFilter<"User"> | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.StringNullableFilter<"User"> | string | null
+  bankName?: Prisma.StringNullableFilter<"User"> | string | null
+  bankCode?: Prisma.StringNullableFilter<"User"> | string | null
+  bankAccountNumber?: Prisma.StringNullableFilter<"User"> | string | null
+  bankAccountName?: Prisma.StringNullableFilter<"User"> | string | null
   rejectionReason?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
@@ -256,6 +288,10 @@ export type UserOrderByWithRelationInput = {
   role?: Prisma.SortOrder
   verificationStatus?: Prisma.SortOrder
   admissionLetterPath?: Prisma.SortOrderInput | Prisma.SortOrder
+  bankName?: Prisma.SortOrderInput | Prisma.SortOrder
+  bankCode?: Prisma.SortOrderInput | Prisma.SortOrder
+  bankAccountNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  bankAccountName?: Prisma.SortOrderInput | Prisma.SortOrder
   rejectionReason?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -280,6 +316,10 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   role?: Prisma.EnumRoleFilter<"User"> | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusFilter<"User"> | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.StringNullableFilter<"User"> | string | null
+  bankName?: Prisma.StringNullableFilter<"User"> | string | null
+  bankCode?: Prisma.StringNullableFilter<"User"> | string | null
+  bankAccountNumber?: Prisma.StringNullableFilter<"User"> | string | null
+  bankAccountName?: Prisma.StringNullableFilter<"User"> | string | null
   rejectionReason?: Prisma.StringNullableFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"User"> | Date | string
@@ -301,6 +341,10 @@ export type UserOrderByWithAggregationInput = {
   role?: Prisma.SortOrder
   verificationStatus?: Prisma.SortOrder
   admissionLetterPath?: Prisma.SortOrderInput | Prisma.SortOrder
+  bankName?: Prisma.SortOrderInput | Prisma.SortOrder
+  bankCode?: Prisma.SortOrderInput | Prisma.SortOrder
+  bankAccountNumber?: Prisma.SortOrderInput | Prisma.SortOrder
+  bankAccountName?: Prisma.SortOrderInput | Prisma.SortOrder
   rejectionReason?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -322,6 +366,10 @@ export type UserScalarWhereWithAggregatesInput = {
   role?: Prisma.EnumRoleWithAggregatesFilter<"User"> | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusWithAggregatesFilter<"User"> | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  bankName?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  bankCode?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  bankAccountNumber?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  bankAccountName?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   rejectionReason?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -337,6 +385,10 @@ export type UserCreateInput = {
   role?: $Enums.Role
   verificationStatus?: $Enums.VerificationStatus
   admissionLetterPath?: string | null
+  bankName?: string | null
+  bankCode?: string | null
+  bankAccountNumber?: string | null
+  bankAccountName?: string | null
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -358,6 +410,10 @@ export type UserUncheckedCreateInput = {
   role?: $Enums.Role
   verificationStatus?: $Enums.VerificationStatus
   admissionLetterPath?: string | null
+  bankName?: string | null
+  bankCode?: string | null
+  bankAccountNumber?: string | null
+  bankAccountName?: string | null
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -379,6 +435,10 @@ export type UserUpdateInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -400,6 +460,10 @@ export type UserUncheckedUpdateInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -421,6 +485,10 @@ export type UserCreateManyInput = {
   role?: $Enums.Role
   verificationStatus?: $Enums.VerificationStatus
   admissionLetterPath?: string | null
+  bankName?: string | null
+  bankCode?: string | null
+  bankAccountNumber?: string | null
+  bankAccountName?: string | null
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -436,6 +504,10 @@ export type UserUpdateManyMutationInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -451,6 +523,10 @@ export type UserUncheckedUpdateManyInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -466,6 +542,10 @@ export type UserCountOrderByAggregateInput = {
   role?: Prisma.SortOrder
   verificationStatus?: Prisma.SortOrder
   admissionLetterPath?: Prisma.SortOrder
+  bankName?: Prisma.SortOrder
+  bankCode?: Prisma.SortOrder
+  bankAccountNumber?: Prisma.SortOrder
+  bankAccountName?: Prisma.SortOrder
   rejectionReason?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -481,6 +561,10 @@ export type UserMaxOrderByAggregateInput = {
   role?: Prisma.SortOrder
   verificationStatus?: Prisma.SortOrder
   admissionLetterPath?: Prisma.SortOrder
+  bankName?: Prisma.SortOrder
+  bankCode?: Prisma.SortOrder
+  bankAccountNumber?: Prisma.SortOrder
+  bankAccountName?: Prisma.SortOrder
   rejectionReason?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -496,6 +580,10 @@ export type UserMinOrderByAggregateInput = {
   role?: Prisma.SortOrder
   verificationStatus?: Prisma.SortOrder
   admissionLetterPath?: Prisma.SortOrder
+  bankName?: Prisma.SortOrder
+  bankCode?: Prisma.SortOrder
+  bankAccountNumber?: Prisma.SortOrder
+  bankAccountName?: Prisma.SortOrder
   rejectionReason?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
@@ -620,6 +708,10 @@ export type UserCreateWithoutLoansInput = {
   role?: $Enums.Role
   verificationStatus?: $Enums.VerificationStatus
   admissionLetterPath?: string | null
+  bankName?: string | null
+  bankCode?: string | null
+  bankAccountNumber?: string | null
+  bankAccountName?: string | null
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -640,6 +732,10 @@ export type UserUncheckedCreateWithoutLoansInput = {
   role?: $Enums.Role
   verificationStatus?: $Enums.VerificationStatus
   admissionLetterPath?: string | null
+  bankName?: string | null
+  bankCode?: string | null
+  bankAccountNumber?: string | null
+  bankAccountName?: string | null
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -676,6 +772,10 @@ export type UserUpdateWithoutLoansInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -696,6 +796,10 @@ export type UserUncheckedUpdateWithoutLoansInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -716,6 +820,10 @@ export type UserCreateWithoutContributionsInput = {
   role?: $Enums.Role
   verificationStatus?: $Enums.VerificationStatus
   admissionLetterPath?: string | null
+  bankName?: string | null
+  bankCode?: string | null
+  bankAccountNumber?: string | null
+  bankAccountName?: string | null
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -736,6 +844,10 @@ export type UserUncheckedCreateWithoutContributionsInput = {
   role?: $Enums.Role
   verificationStatus?: $Enums.VerificationStatus
   admissionLetterPath?: string | null
+  bankName?: string | null
+  bankCode?: string | null
+  bankAccountNumber?: string | null
+  bankAccountName?: string | null
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -772,6 +884,10 @@ export type UserUpdateWithoutContributionsInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -792,6 +908,10 @@ export type UserUncheckedUpdateWithoutContributionsInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -812,6 +932,10 @@ export type UserCreateWithoutTransactionsInput = {
   role?: $Enums.Role
   verificationStatus?: $Enums.VerificationStatus
   admissionLetterPath?: string | null
+  bankName?: string | null
+  bankCode?: string | null
+  bankAccountNumber?: string | null
+  bankAccountName?: string | null
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -832,6 +956,10 @@ export type UserUncheckedCreateWithoutTransactionsInput = {
   role?: $Enums.Role
   verificationStatus?: $Enums.VerificationStatus
   admissionLetterPath?: string | null
+  bankName?: string | null
+  bankCode?: string | null
+  bankAccountNumber?: string | null
+  bankAccountName?: string | null
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -868,6 +996,10 @@ export type UserUpdateWithoutTransactionsInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -888,6 +1020,10 @@ export type UserUncheckedUpdateWithoutTransactionsInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -908,6 +1044,10 @@ export type UserCreateWithoutPushSubscriptionsInput = {
   role?: $Enums.Role
   verificationStatus?: $Enums.VerificationStatus
   admissionLetterPath?: string | null
+  bankName?: string | null
+  bankCode?: string | null
+  bankAccountNumber?: string | null
+  bankAccountName?: string | null
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -928,6 +1068,10 @@ export type UserUncheckedCreateWithoutPushSubscriptionsInput = {
   role?: $Enums.Role
   verificationStatus?: $Enums.VerificationStatus
   admissionLetterPath?: string | null
+  bankName?: string | null
+  bankCode?: string | null
+  bankAccountNumber?: string | null
+  bankAccountName?: string | null
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -964,6 +1108,10 @@ export type UserUpdateWithoutPushSubscriptionsInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -984,6 +1132,10 @@ export type UserUncheckedUpdateWithoutPushSubscriptionsInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1004,6 +1156,10 @@ export type UserCreateWithoutNotificationsInput = {
   role?: $Enums.Role
   verificationStatus?: $Enums.VerificationStatus
   admissionLetterPath?: string | null
+  bankName?: string | null
+  bankCode?: string | null
+  bankAccountNumber?: string | null
+  bankAccountName?: string | null
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1024,6 +1180,10 @@ export type UserUncheckedCreateWithoutNotificationsInput = {
   role?: $Enums.Role
   verificationStatus?: $Enums.VerificationStatus
   admissionLetterPath?: string | null
+  bankName?: string | null
+  bankCode?: string | null
+  bankAccountNumber?: string | null
+  bankAccountName?: string | null
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1060,6 +1220,10 @@ export type UserUpdateWithoutNotificationsInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1080,6 +1244,10 @@ export type UserUncheckedUpdateWithoutNotificationsInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1100,6 +1268,10 @@ export type UserCreateWithoutAdminActionsInput = {
   role?: $Enums.Role
   verificationStatus?: $Enums.VerificationStatus
   admissionLetterPath?: string | null
+  bankName?: string | null
+  bankCode?: string | null
+  bankAccountNumber?: string | null
+  bankAccountName?: string | null
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1120,6 +1292,10 @@ export type UserUncheckedCreateWithoutAdminActionsInput = {
   role?: $Enums.Role
   verificationStatus?: $Enums.VerificationStatus
   admissionLetterPath?: string | null
+  bankName?: string | null
+  bankCode?: string | null
+  bankAccountNumber?: string | null
+  bankAccountName?: string | null
   rejectionReason?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
@@ -1156,6 +1332,10 @@ export type UserUpdateWithoutAdminActionsInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1176,6 +1356,10 @@ export type UserUncheckedUpdateWithoutAdminActionsInput = {
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   verificationStatus?: Prisma.EnumVerificationStatusFieldUpdateOperationsInput | $Enums.VerificationStatus
   admissionLetterPath?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankCode?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  bankAccountName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   rejectionReason?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -1272,6 +1456,10 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   role?: boolean
   verificationStatus?: boolean
   admissionLetterPath?: boolean
+  bankName?: boolean
+  bankCode?: boolean
+  bankAccountNumber?: boolean
+  bankAccountName?: boolean
   rejectionReason?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -1294,6 +1482,10 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   role?: boolean
   verificationStatus?: boolean
   admissionLetterPath?: boolean
+  bankName?: boolean
+  bankCode?: boolean
+  bankAccountNumber?: boolean
+  bankAccountName?: boolean
   rejectionReason?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -1309,6 +1501,10 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   role?: boolean
   verificationStatus?: boolean
   admissionLetterPath?: boolean
+  bankName?: boolean
+  bankCode?: boolean
+  bankAccountNumber?: boolean
+  bankAccountName?: boolean
   rejectionReason?: boolean
   createdAt?: boolean
   updatedAt?: boolean
@@ -1324,12 +1520,16 @@ export type UserSelectScalar = {
   role?: boolean
   verificationStatus?: boolean
   admissionLetterPath?: boolean
+  bankName?: boolean
+  bankCode?: boolean
+  bankAccountNumber?: boolean
+  bankAccountName?: boolean
   rejectionReason?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "matricNo" | "email" | "phone" | "department" | "role" | "verificationStatus" | "admissionLetterPath" | "rejectionReason" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "matricNo" | "email" | "phone" | "department" | "role" | "verificationStatus" | "admissionLetterPath" | "bankName" | "bankCode" | "bankAccountNumber" | "bankAccountName" | "rejectionReason" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   loans?: boolean | Prisma.User$loansArgs<ExtArgs>
   contributions?: boolean | Prisma.User$contributionsArgs<ExtArgs>
@@ -1362,6 +1562,10 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     role: $Enums.Role
     verificationStatus: $Enums.VerificationStatus
     admissionLetterPath: string | null
+    bankName: string | null
+    bankCode: string | null
+    bankAccountNumber: string | null
+    bankAccountName: string | null
     rejectionReason: string | null
     createdAt: Date
     updatedAt: Date
@@ -1803,6 +2007,10 @@ export interface UserFieldRefs {
   readonly role: Prisma.FieldRef<"User", 'Role'>
   readonly verificationStatus: Prisma.FieldRef<"User", 'VerificationStatus'>
   readonly admissionLetterPath: Prisma.FieldRef<"User", 'String'>
+  readonly bankName: Prisma.FieldRef<"User", 'String'>
+  readonly bankCode: Prisma.FieldRef<"User", 'String'>
+  readonly bankAccountNumber: Prisma.FieldRef<"User", 'String'>
+  readonly bankAccountName: Prisma.FieldRef<"User", 'String'>
   readonly rejectionReason: Prisma.FieldRef<"User", 'String'>
   readonly createdAt: Prisma.FieldRef<"User", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"User", 'DateTime'>

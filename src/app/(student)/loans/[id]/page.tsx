@@ -12,7 +12,7 @@ import {
 import { StatusPill } from "@/components/dashboard/status-pill";
 import { LOAN_STATUS_META } from "@/lib/loan-status";
 import { getLoanBalanceRemaining } from "@/utils/eligibility";
-import { Button } from "@/components/ui/button";
+import { PayInstallmentButton } from "@/components/forms/pay-installment-button";
 import { formatNaira } from "@/utils/finance";
 
 export default async function LoanDetailPage({
@@ -152,9 +152,7 @@ export default async function LoanDetailPage({
                     ) : inst.status === InstallmentStatus.OVERDUE ? (
                       <StatusPill label="Overdue" variant="destructive" />
                     ) : (
-                      <Button size="sm" disabled>
-                        Pay
-                      </Button>
+                      <PayInstallmentButton installmentId={inst.id} />
                     )}
                   </div>
                 </div>
