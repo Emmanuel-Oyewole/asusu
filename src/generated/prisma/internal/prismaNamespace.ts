@@ -1052,6 +1052,10 @@ export const UserScalarFieldEnum = {
   role: 'role',
   verificationStatus: 'verificationStatus',
   admissionLetterPath: 'admissionLetterPath',
+  bankName: 'bankName',
+  bankCode: 'bankCode',
+  bankAccountNumber: 'bankAccountNumber',
+  bankAccountName: 'bankAccountName',
   rejectionReason: 'rejectionReason',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

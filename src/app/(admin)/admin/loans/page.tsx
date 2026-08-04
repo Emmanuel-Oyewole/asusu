@@ -5,10 +5,33 @@ import { LoanStatus } from "@/generated/prisma/client";
 import { StatusPill } from "@/components/dashboard/status-pill";
 import { LOAN_STATUS_META } from "@/lib/loan-status";
 import { formatNaira } from "@/utils/finance";
+import { cn } from "@/lib/utils";
 
-export default async function AdminLoansQueuePage() {
+const FILTERS = [
+  { key: "pending", label: "Pending Review", statuses: [LoanStatus.PENDING] },
+  {
+    key: "approved",
+    label: "Awaiting Disbursement",
+    statuses: [LoanStatus.APPROVED],
+  },
+  { key: "active", label: "Active", statuses: [LoanStatus.ACTIVE] },
+  { key: "completed", label: "Completed", statuses: [LoanStatus.COMPLETED] },
+  { key: "rejected", label: "Rejected", statuses: [LoanStatus.REJECTED] },
+  { key: "all", label: "All", statuses: null },
+] as const;
+
+export default async function AdminLoansQueuePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ filter?: string }>;
+}) {
+  const { filter = "pending" } = await searchParams;
+  const activeFilter = FILTERS.find((f) => f.key === filter) ?? FILTERS[0];
+
   const loans = await prisma.loan.findMany({
-    where: { status: LoanStatus.PENDING },
+    where: activeFilter.statuses
+      ? { status: { in: [...activeFilter.statuses] } }
+      : {},
     orderBy: { createdAt: "asc" },
     include: { user: { select: { name: true, matricNo: true } } },
   });
@@ -18,15 +41,32 @@ export default async function AdminLoansQueuePage() {
       <div>
         <h1 className="text-2xl font-bold">Loan Requests</h1>
         <p className="text-sm text-muted-foreground">
-          {loans.length} request{loans.length !== 1 ? "s" : ""} awaiting review
+          {loans.length} loan{loans.length !== 1 ? "s" : ""} in this view
         </p>
+      </div>
+
+      <div className="flex gap-1 overflow-x-auto border-b border-border pb-px">
+        {FILTERS.map((f) => (
+          <Link
+            key={f.key}
+            href={`/admin/loans?filter=${f.key}`}
+            className={cn(
+              "shrink-0 border-b-2 px-3 py-2 text-sm font-medium",
+              activeFilter.key === f.key
+                ? "border-primary text-primary"
+                : "border-transparent text-muted-foreground",
+            )}
+          >
+            {f.label}
+          </Link>
+        ))}
       </div>
 
       {loans.length === 0 ? (
         <div className="flex flex-col items-center gap-2 rounded-xl border border-dashed border-border py-16 text-center">
           <HandCoins className="size-8 text-muted-foreground" />
           <p className="text-sm text-muted-foreground">
-            No pending loan requests.
+            No loans in this category.
           </p>
         </div>
       ) : (
@@ -77,7 +117,9 @@ export default async function AdminLoansQueuePage() {
                         href={`/admin/loans/${loan.id}`}
                         className="text-primary underline underline-offset-4"
                       >
-                        Review
+                        {loan.status === LoanStatus.APPROVED
+                          ? "Disburse"
+                          : "Review"}
                       </Link>
                     </td>
                   </tr>
