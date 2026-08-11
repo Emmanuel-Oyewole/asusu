@@ -2,7 +2,7 @@ import { prisma } from "@/lib/prisma";
 import { TransactionType } from "@/generated/prisma/client";
 
 export function formatNaira(amount: number) {
-  return `₦${amount.toLocaleString("en-NG", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+  return `N${amount.toLocaleString("en-NG", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 }
 
 export async function getPoolBalance() {
