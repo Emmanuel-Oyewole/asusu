@@ -45,6 +45,7 @@ export type LoanInstallmentMinAggregateOutputType = {
   status: $Enums.InstallmentStatus | null
   nombaOrderReference: string | null
   paidAt: Date | null
+  dueReminderSentAt: Date | null
 }
 
 export type LoanInstallmentMaxAggregateOutputType = {
@@ -56,6 +57,7 @@ export type LoanInstallmentMaxAggregateOutputType = {
   status: $Enums.InstallmentStatus | null
   nombaOrderReference: string | null
   paidAt: Date | null
+  dueReminderSentAt: Date | null
 }
 
 export type LoanInstallmentCountAggregateOutputType = {
@@ -67,6 +69,7 @@ export type LoanInstallmentCountAggregateOutputType = {
   status: number
   nombaOrderReference: number
   paidAt: number
+  dueReminderSentAt: number
   _all: number
 }
 
@@ -90,6 +93,7 @@ export type LoanInstallmentMinAggregateInputType = {
   status?: true
   nombaOrderReference?: true
   paidAt?: true
+  dueReminderSentAt?: true
 }
 
 export type LoanInstallmentMaxAggregateInputType = {
@@ -101,6 +105,7 @@ export type LoanInstallmentMaxAggregateInputType = {
   status?: true
   nombaOrderReference?: true
   paidAt?: true
+  dueReminderSentAt?: true
 }
 
 export type LoanInstallmentCountAggregateInputType = {
@@ -112,6 +117,7 @@ export type LoanInstallmentCountAggregateInputType = {
   status?: true
   nombaOrderReference?: true
   paidAt?: true
+  dueReminderSentAt?: true
   _all?: true
 }
 
@@ -210,6 +216,7 @@ export type LoanInstallmentGroupByOutputType = {
   status: $Enums.InstallmentStatus
   nombaOrderReference: string | null
   paidAt: Date | null
+  dueReminderSentAt: Date | null
   _count: LoanInstallmentCountAggregateOutputType | null
   _avg: LoanInstallmentAvgAggregateOutputType | null
   _sum: LoanInstallmentSumAggregateOutputType | null
@@ -244,6 +251,7 @@ export type LoanInstallmentWhereInput = {
   status?: Prisma.EnumInstallmentStatusFilter<"LoanInstallment"> | $Enums.InstallmentStatus
   nombaOrderReference?: Prisma.StringNullableFilter<"LoanInstallment"> | string | null
   paidAt?: Prisma.DateTimeNullableFilter<"LoanInstallment"> | Date | string | null
+  dueReminderSentAt?: Prisma.DateTimeNullableFilter<"LoanInstallment"> | Date | string | null
   loan?: Prisma.XOR<Prisma.LoanScalarRelationFilter, Prisma.LoanWhereInput>
   transactions?: Prisma.TransactionListRelationFilter
 }
@@ -257,6 +265,7 @@ export type LoanInstallmentOrderByWithRelationInput = {
   status?: Prisma.SortOrder
   nombaOrderReference?: Prisma.SortOrderInput | Prisma.SortOrder
   paidAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  dueReminderSentAt?: Prisma.SortOrderInput | Prisma.SortOrder
   loan?: Prisma.LoanOrderByWithRelationInput
   transactions?: Prisma.TransactionOrderByRelationAggregateInput
 }
@@ -274,6 +283,7 @@ export type LoanInstallmentWhereUniqueInput = Prisma.AtLeast<{
   dueDate?: Prisma.DateTimeFilter<"LoanInstallment"> | Date | string
   status?: Prisma.EnumInstallmentStatusFilter<"LoanInstallment"> | $Enums.InstallmentStatus
   paidAt?: Prisma.DateTimeNullableFilter<"LoanInstallment"> | Date | string | null
+  dueReminderSentAt?: Prisma.DateTimeNullableFilter<"LoanInstallment"> | Date | string | null
   loan?: Prisma.XOR<Prisma.LoanScalarRelationFilter, Prisma.LoanWhereInput>
   transactions?: Prisma.TransactionListRelationFilter
 }, "id" | "nombaOrderReference" | "loanId_installmentNo">
@@ -287,6 +297,7 @@ export type LoanInstallmentOrderByWithAggregationInput = {
   status?: Prisma.SortOrder
   nombaOrderReference?: Prisma.SortOrderInput | Prisma.SortOrder
   paidAt?: Prisma.SortOrderInput | Prisma.SortOrder
+  dueReminderSentAt?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.LoanInstallmentCountOrderByAggregateInput
   _avg?: Prisma.LoanInstallmentAvgOrderByAggregateInput
   _max?: Prisma.LoanInstallmentMaxOrderByAggregateInput
@@ -306,6 +317,7 @@ export type LoanInstallmentScalarWhereWithAggregatesInput = {
   status?: Prisma.EnumInstallmentStatusWithAggregatesFilter<"LoanInstallment"> | $Enums.InstallmentStatus
   nombaOrderReference?: Prisma.StringNullableWithAggregatesFilter<"LoanInstallment"> | string | null
   paidAt?: Prisma.DateTimeNullableWithAggregatesFilter<"LoanInstallment"> | Date | string | null
+  dueReminderSentAt?: Prisma.DateTimeNullableWithAggregatesFilter<"LoanInstallment"> | Date | string | null
 }
 
 export type LoanInstallmentCreateInput = {
@@ -316,6 +328,7 @@ export type LoanInstallmentCreateInput = {
   status?: $Enums.InstallmentStatus
   nombaOrderReference?: string | null
   paidAt?: Date | string | null
+  dueReminderSentAt?: Date | string | null
   loan: Prisma.LoanCreateNestedOneWithoutInstallmentsInput
   transactions?: Prisma.TransactionCreateNestedManyWithoutLoanInstallmentInput
 }
@@ -329,6 +342,7 @@ export type LoanInstallmentUncheckedCreateInput = {
   status?: $Enums.InstallmentStatus
   nombaOrderReference?: string | null
   paidAt?: Date | string | null
+  dueReminderSentAt?: Date | string | null
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutLoanInstallmentInput
 }
 
@@ -340,6 +354,7 @@ export type LoanInstallmentUpdateInput = {
   status?: Prisma.EnumInstallmentStatusFieldUpdateOperationsInput | $Enums.InstallmentStatus
   nombaOrderReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dueReminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   loan?: Prisma.LoanUpdateOneRequiredWithoutInstallmentsNestedInput
   transactions?: Prisma.TransactionUpdateManyWithoutLoanInstallmentNestedInput
 }
@@ -353,6 +368,7 @@ export type LoanInstallmentUncheckedUpdateInput = {
   status?: Prisma.EnumInstallmentStatusFieldUpdateOperationsInput | $Enums.InstallmentStatus
   nombaOrderReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dueReminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutLoanInstallmentNestedInput
 }
 
@@ -365,6 +381,7 @@ export type LoanInstallmentCreateManyInput = {
   status?: $Enums.InstallmentStatus
   nombaOrderReference?: string | null
   paidAt?: Date | string | null
+  dueReminderSentAt?: Date | string | null
 }
 
 export type LoanInstallmentUpdateManyMutationInput = {
@@ -375,6 +392,7 @@ export type LoanInstallmentUpdateManyMutationInput = {
   status?: Prisma.EnumInstallmentStatusFieldUpdateOperationsInput | $Enums.InstallmentStatus
   nombaOrderReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dueReminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type LoanInstallmentUncheckedUpdateManyInput = {
@@ -386,6 +404,7 @@ export type LoanInstallmentUncheckedUpdateManyInput = {
   status?: Prisma.EnumInstallmentStatusFieldUpdateOperationsInput | $Enums.InstallmentStatus
   nombaOrderReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dueReminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type LoanInstallmentListRelationFilter = {
@@ -412,6 +431,7 @@ export type LoanInstallmentCountOrderByAggregateInput = {
   status?: Prisma.SortOrder
   nombaOrderReference?: Prisma.SortOrder
   paidAt?: Prisma.SortOrder
+  dueReminderSentAt?: Prisma.SortOrder
 }
 
 export type LoanInstallmentAvgOrderByAggregateInput = {
@@ -428,6 +448,7 @@ export type LoanInstallmentMaxOrderByAggregateInput = {
   status?: Prisma.SortOrder
   nombaOrderReference?: Prisma.SortOrder
   paidAt?: Prisma.SortOrder
+  dueReminderSentAt?: Prisma.SortOrder
 }
 
 export type LoanInstallmentMinOrderByAggregateInput = {
@@ -439,6 +460,7 @@ export type LoanInstallmentMinOrderByAggregateInput = {
   status?: Prisma.SortOrder
   nombaOrderReference?: Prisma.SortOrder
   paidAt?: Prisma.SortOrder
+  dueReminderSentAt?: Prisma.SortOrder
 }
 
 export type LoanInstallmentSumOrderByAggregateInput = {
@@ -521,6 +543,7 @@ export type LoanInstallmentCreateWithoutLoanInput = {
   status?: $Enums.InstallmentStatus
   nombaOrderReference?: string | null
   paidAt?: Date | string | null
+  dueReminderSentAt?: Date | string | null
   transactions?: Prisma.TransactionCreateNestedManyWithoutLoanInstallmentInput
 }
 
@@ -532,6 +555,7 @@ export type LoanInstallmentUncheckedCreateWithoutLoanInput = {
   status?: $Enums.InstallmentStatus
   nombaOrderReference?: string | null
   paidAt?: Date | string | null
+  dueReminderSentAt?: Date | string | null
   transactions?: Prisma.TransactionUncheckedCreateNestedManyWithoutLoanInstallmentInput
 }
 
@@ -573,6 +597,7 @@ export type LoanInstallmentScalarWhereInput = {
   status?: Prisma.EnumInstallmentStatusFilter<"LoanInstallment"> | $Enums.InstallmentStatus
   nombaOrderReference?: Prisma.StringNullableFilter<"LoanInstallment"> | string | null
   paidAt?: Prisma.DateTimeNullableFilter<"LoanInstallment"> | Date | string | null
+  dueReminderSentAt?: Prisma.DateTimeNullableFilter<"LoanInstallment"> | Date | string | null
 }
 
 export type LoanInstallmentCreateWithoutTransactionsInput = {
@@ -583,6 +608,7 @@ export type LoanInstallmentCreateWithoutTransactionsInput = {
   status?: $Enums.InstallmentStatus
   nombaOrderReference?: string | null
   paidAt?: Date | string | null
+  dueReminderSentAt?: Date | string | null
   loan: Prisma.LoanCreateNestedOneWithoutInstallmentsInput
 }
 
@@ -595,6 +621,7 @@ export type LoanInstallmentUncheckedCreateWithoutTransactionsInput = {
   status?: $Enums.InstallmentStatus
   nombaOrderReference?: string | null
   paidAt?: Date | string | null
+  dueReminderSentAt?: Date | string | null
 }
 
 export type LoanInstallmentCreateOrConnectWithoutTransactionsInput = {
@@ -621,6 +648,7 @@ export type LoanInstallmentUpdateWithoutTransactionsInput = {
   status?: Prisma.EnumInstallmentStatusFieldUpdateOperationsInput | $Enums.InstallmentStatus
   nombaOrderReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dueReminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   loan?: Prisma.LoanUpdateOneRequiredWithoutInstallmentsNestedInput
 }
 
@@ -633,6 +661,7 @@ export type LoanInstallmentUncheckedUpdateWithoutTransactionsInput = {
   status?: Prisma.EnumInstallmentStatusFieldUpdateOperationsInput | $Enums.InstallmentStatus
   nombaOrderReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dueReminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 export type LoanInstallmentCreateManyLoanInput = {
@@ -643,6 +672,7 @@ export type LoanInstallmentCreateManyLoanInput = {
   status?: $Enums.InstallmentStatus
   nombaOrderReference?: string | null
   paidAt?: Date | string | null
+  dueReminderSentAt?: Date | string | null
 }
 
 export type LoanInstallmentUpdateWithoutLoanInput = {
@@ -653,6 +683,7 @@ export type LoanInstallmentUpdateWithoutLoanInput = {
   status?: Prisma.EnumInstallmentStatusFieldUpdateOperationsInput | $Enums.InstallmentStatus
   nombaOrderReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dueReminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   transactions?: Prisma.TransactionUpdateManyWithoutLoanInstallmentNestedInput
 }
 
@@ -664,6 +695,7 @@ export type LoanInstallmentUncheckedUpdateWithoutLoanInput = {
   status?: Prisma.EnumInstallmentStatusFieldUpdateOperationsInput | $Enums.InstallmentStatus
   nombaOrderReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dueReminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   transactions?: Prisma.TransactionUncheckedUpdateManyWithoutLoanInstallmentNestedInput
 }
 
@@ -675,6 +707,7 @@ export type LoanInstallmentUncheckedUpdateManyWithoutLoanInput = {
   status?: Prisma.EnumInstallmentStatusFieldUpdateOperationsInput | $Enums.InstallmentStatus
   nombaOrderReference?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   paidAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  dueReminderSentAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
 }
 
 
@@ -717,6 +750,7 @@ export type LoanInstallmentSelect<ExtArgs extends runtime.Types.Extensions.Inter
   status?: boolean
   nombaOrderReference?: boolean
   paidAt?: boolean
+  dueReminderSentAt?: boolean
   loan?: boolean | Prisma.LoanDefaultArgs<ExtArgs>
   transactions?: boolean | Prisma.LoanInstallment$transactionsArgs<ExtArgs>
   _count?: boolean | Prisma.LoanInstallmentCountOutputTypeDefaultArgs<ExtArgs>
@@ -731,6 +765,7 @@ export type LoanInstallmentSelectCreateManyAndReturn<ExtArgs extends runtime.Typ
   status?: boolean
   nombaOrderReference?: boolean
   paidAt?: boolean
+  dueReminderSentAt?: boolean
   loan?: boolean | Prisma.LoanDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["loanInstallment"]>
 
@@ -743,6 +778,7 @@ export type LoanInstallmentSelectUpdateManyAndReturn<ExtArgs extends runtime.Typ
   status?: boolean
   nombaOrderReference?: boolean
   paidAt?: boolean
+  dueReminderSentAt?: boolean
   loan?: boolean | Prisma.LoanDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["loanInstallment"]>
 
@@ -755,9 +791,10 @@ export type LoanInstallmentSelectScalar = {
   status?: boolean
   nombaOrderReference?: boolean
   paidAt?: boolean
+  dueReminderSentAt?: boolean
 }
 
-export type LoanInstallmentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "loanId" | "installmentNo" | "amountDue" | "dueDate" | "status" | "nombaOrderReference" | "paidAt", ExtArgs["result"]["loanInstallment"]>
+export type LoanInstallmentOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "loanId" | "installmentNo" | "amountDue" | "dueDate" | "status" | "nombaOrderReference" | "paidAt" | "dueReminderSentAt", ExtArgs["result"]["loanInstallment"]>
 export type LoanInstallmentInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   loan?: boolean | Prisma.LoanDefaultArgs<ExtArgs>
   transactions?: boolean | Prisma.LoanInstallment$transactionsArgs<ExtArgs>
@@ -785,6 +822,7 @@ export type $LoanInstallmentPayload<ExtArgs extends runtime.Types.Extensions.Int
     status: $Enums.InstallmentStatus
     nombaOrderReference: string | null
     paidAt: Date | null
+    dueReminderSentAt: Date | null
   }, ExtArgs["result"]["loanInstallment"]>
   composites: {}
 }
@@ -1218,6 +1256,7 @@ export interface LoanInstallmentFieldRefs {
   readonly status: Prisma.FieldRef<"LoanInstallment", 'InstallmentStatus'>
   readonly nombaOrderReference: Prisma.FieldRef<"LoanInstallment", 'String'>
   readonly paidAt: Prisma.FieldRef<"LoanInstallment", 'DateTime'>
+  readonly dueReminderSentAt: Prisma.FieldRef<"LoanInstallment", 'DateTime'>
 }
     
 

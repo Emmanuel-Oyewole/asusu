@@ -123,6 +123,7 @@ model LoanInstallment {
 
   nombaOrderReference String?   @unique
   paidAt              DateTime?
+  dueReminderSentAt DateTime?
 
   transactions Transaction[]
 
