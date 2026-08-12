@@ -123,6 +123,7 @@ model LoanInstallment {
 
   nombaOrderReference String?   @unique
   paidAt              DateTime?
+  dueReminderSentAt DateTime?
 
   transactions Transaction[]
 
@@ -192,6 +193,7 @@ model Notification {
   type      NotificationType
   title     String
   body      String
+  url      String
   read      Boolean          @default(false)
   createdAt DateTime         @default(now())
 

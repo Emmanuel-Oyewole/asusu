@@ -4,11 +4,18 @@ import webpush from "web-push";
 import { prisma } from "@/lib/prisma";
 import { getCurrentUserId } from "@/lib/auth";
 
-webpush.setVapidDetails(
-  process.env.MAIL_TO_ADDRESS!,
-  process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
-  process.env.VAPID_PRIVATE_KEY!,
-);
+let vapidDetailsSet = false;
+
+function initializeVapidDetails() {
+  if (!vapidDetailsSet) {
+    webpush.setVapidDetails(
+      process.env.MAIL_TO_ADDRESS!,
+      process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
+      process.env.VAPID_PRIVATE_KEY!,
+    );
+    vapidDetailsSet = true;
+  }
+}
 
 type SerializedSubscription = {
   endpoint: string;
@@ -43,6 +50,7 @@ export async function sendNotification(
   body: string,
   url: string = "/",
 ) {
+  initializeVapidDetails();
   const subs = await prisma.pushSubscription.findMany({ where: { userId } });
 
   const results = await Promise.allSettled(

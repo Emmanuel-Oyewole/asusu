@@ -1091,7 +1091,8 @@ export const LoanInstallmentScalarFieldEnum = {
   dueDate: 'dueDate',
   status: 'status',
   nombaOrderReference: 'nombaOrderReference',
-  paidAt: 'paidAt'
+  paidAt: 'paidAt',
+  dueReminderSentAt: 'dueReminderSentAt'
 } as const
 
 export type LoanInstallmentScalarFieldEnum = (typeof LoanInstallmentScalarFieldEnum)[keyof typeof LoanInstallmentScalarFieldEnum]
@@ -1144,6 +1145,7 @@ export const NotificationScalarFieldEnum = {
   type: 'type',
   title: 'title',
   body: 'body',
+  url: 'url',
   read: 'read',
   createdAt: 'createdAt'
 } as const
