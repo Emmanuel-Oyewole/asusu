@@ -180,6 +180,7 @@ export const NotificationScalarFieldEnum = {
   type: 'type',
   title: 'title',
   body: 'body',
+  url: 'url',
   read: 'read',
   createdAt: 'createdAt'
 } as const
