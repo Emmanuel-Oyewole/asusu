@@ -9,6 +9,7 @@ import {
   FileDown,
   User,
 } from "lucide-react";
+import { LogoutButton } from "@/components/dashboard/logout-button";
 import { cn } from "@/lib/utils";
 
 const tabs = [
@@ -31,8 +32,11 @@ export function StudentShell({
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <header className="sticky top-0 z-40 border-b border-border bg-background px-4 py-3">
-        <p className="text-sm text-muted-foreground">Welcome back,</p>
-        <p className="font-semibold">{userName}</p>
+        <div>
+          <p className="text-sm text-muted-foreground">Welcome back,</p>
+          <p className="font-semibold">{userName}</p>
+        </div>
+        <LogoutButton />
       </header>
 
       <main className="flex-1 pb-20">{children}</main>
