@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { PasswordRequirements } from "@/components/forms/password-requirements";
 import { StickyFormFooter } from "@/components/forms/sticky-form-footer";
 import { validatePassword } from "@/lib/password";
+import { departments } from "@/lib/departments";
 
 export default function RegisterPage() {
   const [state, formAction, isPending] = useActionState(
@@ -34,7 +35,27 @@ export default function RegisterPage() {
           <Field label="Matric Number" name="matricNo" required />
           <Field label="Email" name="email" type="email" required />
           <Field label="Phone Number" name="phone" type="tel" required />
-          <Field label="Department" name="department" required />
+          <div className="flex flex-col gap-1.5">
+            <label htmlFor="department" className="text-sm font-medium">
+              Department
+            </label>
+            <select
+              id="department"
+              name="department"
+              required
+              defaultValue=""
+              className="h-10 rounded-md border border-input bg-input px-3 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <option value="" disabled>
+                Select your department
+              </option>
+              {departments.map((dept) => (
+                <option key={dept.value} value={dept.value}>
+                  {dept.label}
+                </option>
+              ))}
+            </select>
+          </div>
 
           <div className="flex flex-col gap-1.5">
             <label htmlFor="password" className="text-sm font-medium">
