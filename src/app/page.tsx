@@ -112,14 +112,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4">
             <Button
               size="lg"
-              className="bg-primary-foreground text-primary hover:opacity-90 transition-opacity font-semibold"
+              className=" text-primary-foreground border-primary-foreground  font-semibold"
             >
               <Link href="/register">Get started</Link>
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 transition-colors font-semibold"
+              className="border-2 border-primary-foreground text-primary-foreground  font-semibold"
             >
               <Link href="/login">Log in</Link>
             </Button>
